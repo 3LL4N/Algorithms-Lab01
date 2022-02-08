@@ -34,18 +34,21 @@ for (var j = 0; j < 100; j++){
     var testArray = [];
     
 
-    for (var i = 0; i < 100000; i++){
+    for (var i = 0; i < 10000; i++){
 
         testArray.push(Math.random() * 10000)
 
     }
 
+    finalArray = insertSort(testArray);
+    
+
 
     const time1 = Date.now();
     const finalTime = time1 - time0;
-    console.log(`Time to sort 100000 numbers: ${finalTime} milliseconds`);
+    console.log(`Time to sort 10000 numbers: ${finalTime} milliseconds`);
 
-    fs.appendFileSync("insertSortTimes.txt", `Time to sort 100000 numbers. Test ${j + 1}: ${finalTime} ms \n`, (err) => {
+    fs.appendFileSync("insertSortTimes.txt", `Time to sort 10,000 numbers. Test ${j + 1}: ${finalTime} ms \n`, (err) => {
         if (err)
             console.log(err);
         else{
@@ -55,12 +58,14 @@ for (var j = 0; j < 100; j++){
     
     );
 
+    
+
 
     averageTime += finalTime;
 }
 
 
-console.log(`Average time to sort 100,000 numbers, done over 100 tests: ${averageTime / 100} ms`)
+console.log(`Average time to sort 10,000 numbers, done over 100 tests: ${averageTime / 100} ms`)
 
 // const testArray = [17, 8, 9, 6, 4, 56, 7, 4, 6, 7, 534, 3, 22, 5, 6.2, 5.75, 727];
 
