@@ -15,7 +15,7 @@ for (var k = 3; k <= 750; k++){
 
     for (var j = 0; j < 2000; j++){
 
-        const time0 = Date.now();
+       
 
         var testArray = [];
         
@@ -24,7 +24,10 @@ for (var k = 3; k <= 750; k++){
             testArray.push(Math.random() * 10000)
         }
 
+        const time0 = Date.now();
+
         const finalArray = insertSort(testArray);
+        
         
         const time1 = Date.now();
         const finalTime = time1 - time0;
