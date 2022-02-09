@@ -1,40 +1,48 @@
 import { insertSort } from './insertionSort.js';
 import * as fs from 'fs';
 
-if (fs.existsSync("insertSortTimes.txt")){
+if (fs.existsSync("insertSortTimes.csv")){
 
-    fs.unlinkSync("insertSortTimes.txt");
+    fs.unlinkSync("insertSortTimes.csv");
 
 }
 
-var averageTime = 0;
+fs.appendFileSync("insertSortTimes.csv","number_of_elements,average_sort_time \n")
 
-for (var j = 0; j < 100; j++){
+for (var k = 3; k <= 750; k++){
+    var averageTime = 0;
 
-    const time0 = Date.now();
 
-    var testArray = [];
-    
-    for (var i = 0; i < 10000; i++){
+    for (var j = 0; j < 2000; j++){
 
-        testArray.push(Math.random() * 10000)
+        const time0 = Date.now();
+
+        var testArray = [];
+        
+        for (var i = 0; i < k; i++){
+
+            testArray.push(Math.random() * 10000)
+        }
+
+        const finalArray = insertSort(testArray);
+        
+        const time1 = Date.now();
+        const finalTime = time1 - time0;
+
+
+
+        averageTime += finalTime;
     }
 
-    const finalArray = insertSort(testArray);
-    
-    const time1 = Date.now();
-    const finalTime = time1 - time0;
-    console.log(`Time to sort 10000 numbers: ${finalTime} milliseconds`);
+    console.log(`Average time to sort ${k} numbers, done over ${j} tests: ${averageTime / j} ms`);
 
-    fs.appendFileSync("insertSortTimes.txt", `Time to sort 10,000 numbers. Test ${j + 1}: ${finalTime} ms \n`, (err) => {
+    fs.appendFileSync("insertSortTimes.csv", `${k},${averageTime / j} \n`, (err) => {
         if (err)
             console.log(err);
         else{
             console.log('success');
             } 
     });
+};
 
-    averageTime += finalTime;
-}
-
-console.log(`Average time to sort 10,000 numbers, done over 100 tests: ${averageTime / 100} ms`);
+console.log("Test done!")
