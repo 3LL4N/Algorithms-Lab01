@@ -1,4 +1,5 @@
-const fs =  require('fs');
+import { insertSort } from './insertionSort.js';
+import * as fs from 'fs';
 
 if (fs.existsSync("insertSortTimes.txt")){
 
@@ -19,7 +20,7 @@ for (var j = 0; j < 100; j++){
         testArray.push(Math.random() * 10000)
     }
 
-    finalArray = insertSort(testArray);
+    const finalArray = insertSort(testArray);
     
     const time1 = Date.now();
     const finalTime = time1 - time0;
@@ -36,4 +37,4 @@ for (var j = 0; j < 100; j++){
     averageTime += finalTime;
 }
 
-console.log(`Average time to sort 10,000 numbers, done over 100 tests: ${averageTime / 100} ms`)
+console.log(`Average time to sort 10,000 numbers, done over 100 tests: ${averageTime / 100} ms`);

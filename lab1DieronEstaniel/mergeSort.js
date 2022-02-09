@@ -29,7 +29,7 @@ const mergeSort = (inputArray) => {
     return merge(mergeSort(leftArray), mergeSort(rightArray));
 }
     
-let testString = "nice try lol";
+let testString = ["test", "lmao", "uwu"];
 let testNumbers = [1, 8 ,9, 5, 0, 100, 283];
 
 console.log(mergeSort(testString));
