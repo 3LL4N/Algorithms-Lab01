@@ -10,11 +10,11 @@ if (fs.existsSync("insertSortTimesString.csv")){
 
 fs.appendFileSync("insertSortTimesString.csv","number_of_elements,average_sort_time \n")
 
-for (var k = 3; k <= 750; k++){
+for (var k = 3; k <= 500; k++){
     var averageTime = 0;
 
 
-    for (var j = 0; j < 250; j++){
+    for (var j = 0; j < 100; j++){
 
         
 
