@@ -1,4 +1,4 @@
-export const merge = (leftInput, rightInput) => {
+const merge = (leftInput, rightInput) => {
     let sortedArray = []; 
     let leftArray = Array.from(leftInput);
     let rightArray = Array.from(rightInput);
