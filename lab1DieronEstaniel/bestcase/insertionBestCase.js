@@ -9,10 +9,10 @@ if (fs.existsSync("insertBestCase.csv")){
 
 fs.appendFileSync("insertBestCase.csv","number_of_elements,average_sort_time \n")
 
-for (var k = 3; k <= 750; k++){
+for (var k = 3; k <= 4; k++){
     var averageTime = 0;
 
-    for (var j = 0; j < 2000; j++){
+    for (var j = 0; j < 1; j++){
 
         var testArray = [];
         
@@ -31,7 +31,7 @@ for (var k = 3; k <= 750; k++){
         averageTime += finalTime;
     }
 
-    console.log(`Average time to sort ${k} numbers, done over ${j} tests: ${averageTime / j} ms`);
+    console.log(`Best time to sort ${k} elements, done over ${j} tests: ${averageTime / j} ms`);
 
     fs.appendFileSync("insertBestCase.csv", `${k},${averageTime / j} \n`, (err) => {
         if (err)
