@@ -1,4 +1,4 @@
-const merge = (leftInput, rightInput) => {
+export const merge = (leftInput, rightInput) => {
     let sortedArray = []; 
     let leftArray = Array.from(leftInput);
     let rightArray = Array.from(rightInput);
@@ -15,7 +15,7 @@ const merge = (leftInput, rightInput) => {
     return [...sortedArray, ...leftArray, ...rightArray];//makes a copy and combines the arrays.
 }
 
-const mergeSort = (inputArray) => {
+export const mergeSort = (inputArray) => {
     const processedArray = Array.from(inputArray);
     const fullLenght = inputArray.length;
     const halfLength = Math.floor(fullLenght / 2);
@@ -29,10 +29,5 @@ const mergeSort = (inputArray) => {
     return merge(mergeSort(leftArray), mergeSort(rightArray));
 }
     
-let testString = "nice try lol";
-let testNumbers = [1, 8 ,9, 5, 0, 100, 283];
-
-console.log(mergeSort(testString));
-console.log(mergeSort(testNumbers));
 
 
