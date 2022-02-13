@@ -22,7 +22,11 @@ for (var k = 3; k <= 750; k++){
         for (var i = 0; i < k; i++){
 
             testArray.push(i);
+        }
+
+        if (testArray.length >= 2 && testArray[0] < testArray[1]) {
             testArray.reverse();
+            //checks if the array has more than 2 elements and if sorted reverses it
         }
 
         const time0 = Date.now();
